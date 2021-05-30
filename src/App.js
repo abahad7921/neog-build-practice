@@ -6,7 +6,6 @@ export default function App() {
   const [amount, setAmount] = useState(0);
   const [bill, setBill] = useState(0);
 
-  // const [showAfter,setShowAfter] = useState("");
   var i = amount,
     j = bill;
   function onChangeHandler() {
