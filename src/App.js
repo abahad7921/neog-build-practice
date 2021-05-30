@@ -1,6 +1,6 @@
 import "./styles.css";
 import React, { useState } from "react";
-import CalculateOutput from "./CalculateOutput";
+import CalculateOutput from "./components/CalculateOutput";
 export default function App() {
   const [show, setShow] = useState("");
   const [amount, setAmount] = useState(0);
