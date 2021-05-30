@@ -1,11 +1,11 @@
 import "./styles.css";
 import React, { useState } from "react";
-
+import calculateOutput from "./CalculateOutput";
 export default function App() {
   const [show, setShow] = useState("");
-  const [amount,setAmount] = useState(0);
-  const [bill,setBill] = useState(0);
-  const [out,setOut] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [bill, setBill] = useState(0);
+
   // const [showAfter,setShowAfter] = useState("");
 
   function onChangeHandler() {
@@ -21,10 +21,10 @@ export default function App() {
     }
   }
 
-  function onChangeHandler2(){
+  function onChangeHandler2() {
     var val2 = event.target.value;
 
-    if(val2 != ""){
+    if (val2 != "") {
       setBill(val2);
     }
   }
@@ -32,37 +32,6 @@ export default function App() {
   function showIfTrue() {
     if (show != "") return <input onChange={onChangeHandler2}></input>;
   }
-
-  function calculateOutput(){
-    if(bill != 0 && amount != 0)
-    {
-      //console.log("they are not equal to 0");
-
-      var diff = amount - bill;
-      //console.log("the diff is: "+ diff);
-      var notes = [2000, 500,100,20, 10, 5, 1 ];
-      
-      var countNotes = 0,noteCounter;
-
-        // count notes using Greedy approach
-        for (var i = 0; i < 7; i++) {
-        if (diff >= notes[i]) {
-        noteCounter =  Math.floor(  diff / notes[i] );
-        
-        countNotes = countNotes + noteCounter;
-        diff = diff - noteCounter * notes[i];
-          }
-        }
-
-
-       
-        console.log(countNotes);
-        setOut(countNotes);
-
-    }
-  }
-
- 
 
   return (
     <div className="App">
@@ -77,13 +46,10 @@ export default function App() {
         showIfTrue() //this will show the next bill input if the total amount is given
       }
 
-      {
-        calculateOutput()
-      }
+      {calculateOutput()}
 
-      
-
-      <p>THe output is {out}</p>
+      <p>THe output is</p>
+      <calculateOutput isLoggedIn={isLoggedIn} />
     </div>
   );
 }
