@@ -6,8 +6,6 @@ export default function App() {
   const [amount, setAmount] = useState(0);
   const [bill, setBill] = useState(0);
 
-  var i = amount,
-    j = bill;
   function onChangeHandler() {
     var val = event.target.value;
     //console.log(val);
@@ -46,8 +44,7 @@ export default function App() {
         showIfTrue() //this will show the next bill input if the total amount is given
       }
 
-      <p>THe output is</p>
-      <CalculateOutput amt={i} bill={j} />
+      <CalculateOutput amt={amount} bill={bill} />
     </div>
   );
 }
