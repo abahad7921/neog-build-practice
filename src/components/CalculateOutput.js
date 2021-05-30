@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
 const CalculateOutput = (props) => {
+  // const [showhere, setShowHere] = useState("");
   var amount = props.amt;
   var bill = props.bill;
-  if (amount != 0 && bill != 0) {
+  if (amount !== 0 && bill !== 0) {
     var diff = amount - bill;
 
     var notes = [2000, 500, 100, 20, 10, 5, 1];
@@ -22,9 +23,10 @@ const CalculateOutput = (props) => {
     }
 
     console.log(countNotes);
+    //setShowHere(countNotes);
   }
 
-  return <p>this is it the answer is {countNotes}</p>;
+  return <div>{props.show !== "" ? <p>{countNotes}</p> : ""}</div>;
 };
 
 export default CalculateOutput;

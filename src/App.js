@@ -28,7 +28,14 @@ export default function App() {
   }
 
   function showIfTrue() {
-    if (show != "") return <input onChange={onChangeHandler2}></input>;
+    if (show != "")
+      return (
+        <input
+          onChange={onChangeHandler2}
+          placeholder="it should be less than or equal to amount"
+          style={{ width: "250px" }}
+        ></input>
+      );
   }
 
   return (
@@ -37,14 +44,18 @@ export default function App() {
       <h2>Enter amount to see the magic</h2>
 
       <p>Enter The Total Amount given: </p>
-      <input onChange={onChangeHandler}></input>
+      <input
+        onChange={onChangeHandler}
+        placeholder="amount"
+        style={{ width: "250px" }}
+      ></input>
       <p>{show}</p>
 
       {
         showIfTrue() //this will show the next bill input if the total amount is given
       }
 
-      <CalculateOutput amt={amount} bill={bill} />
+      <CalculateOutput amt={amount} bill={bill} show={show} />
     </div>
   );
 }
