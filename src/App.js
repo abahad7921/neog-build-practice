@@ -1,13 +1,14 @@
 import "./styles.css";
 import React, { useState } from "react";
-import calculateOutput from "./CalculateOutput";
+import CalculateOutput from "./CalculateOutput";
 export default function App() {
   const [show, setShow] = useState("");
   const [amount, setAmount] = useState(0);
   const [bill, setBill] = useState(0);
 
   // const [showAfter,setShowAfter] = useState("");
-
+  var i = amount,
+    j = bill;
   function onChangeHandler() {
     var val = event.target.value;
     //console.log(val);
@@ -46,10 +47,8 @@ export default function App() {
         showIfTrue() //this will show the next bill input if the total amount is given
       }
 
-      {calculateOutput()}
-
       <p>THe output is</p>
-      <calculateOutput isLoggedIn={isLoggedIn} />
+      <CalculateOutput amt={i} bill={j} />
     </div>
   );
 }

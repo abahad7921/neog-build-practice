@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-const [out, setOut] = useState("");
+//const [out, setOut] = useState("");
 const CalculateOutput = (props) => {
-  if (bill != 0 && amount != 0) {
+  // console.log("yyy")
+  var amount = props.amt;
+  var bill = props.bill;
+  if (amount != 0 && bill != 0) {
     //console.log("they are not equal to 0");
 
     var diff = amount - bill;
@@ -23,8 +26,11 @@ const CalculateOutput = (props) => {
     }
 
     console.log(countNotes);
-    setOut(countNotes);
+
+    //setOut(countNotes);
   }
+
+  return <p>this is it the answer is {countNotes}</p>
 };
 
 export default CalculateOutput;
